@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI Clerk Mock Test Series</title>
+    <style>
+        :root {
+            --easy: #27ae60;
+            --medium: #f39c12;
+            --hard: #e74c3c;
+            --bg: #f0f2f5;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background-color: var(--bg); 
+            margin: 0; 
+            padding: 20px;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        header h1 { margin: 0; color: #2c3e50; font-size: 1.8rem; }
+        header p { color: #666; margin-top: 5px; }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin: 30px 0 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            margin-left: 15px;
+            background: #ddd;
+        }
+
+        .easy-title { color: var(--easy); }
+        .medium-title { color: var(--medium); }
+        .hard-title { color: var(--hard); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+        }
+
+        .mock-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom: 4px solid transparent;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mock-card span {
+            font-size: 0.7rem;
+            color: #888;
+            font-weight: normal;
+        }
+
+        /* Hover/Active States */
+        .mock-card:active { transform: scale(0.95); }
+        
+        .card-easy { border-color: var(--easy); }
+        .card-easy:hover { background: #eafaf1; }
+
+        .card-medium { border-color: var(--medium); }
+        .card-medium:hover { background: #fef5e7; }
+
+        .card-hard { border-color: var(--hard); }
+        .card-hard:hover { background: #fdedec; }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SBI Clerk Test Series</h1>
+        <p>Quantitative Aptitude | 35 Questions | 20 Mins</p>
+    </header>
+
+    <div class="section-title easy-title">Level 1: Easy</div>
+    <div class="grid" id="easy-grid"></div>
+
+    <div class="section-title medium-title">Level 2: Medium</div>
+    <div class="grid" id="medium-grid"></div>
+
+    <div class="section-title hard-title">Level 3: Hard</div>
+    <div class="grid" id="hard-grid"></div>
+
+    <footer>
+        &copy; 2024 Exam Practice Portal
+    </footer>
+
+    <script>
+        function createLinks(start, end, containerId, cssClass) {
+            const container = document.getElementById(containerId);
+            for (let i = start; i <= end; i++) {
+                const a = document.createElement('a');
+                a.href = `mock${i}.html`;
+                a.className = `mock-card ${cssClass}`;
+                a.innerHTML = `Mock ${i} <span>Quant</span>`;
+                container.appendChild(a);
+            }
+        }
+
+        // Generate 1-10 (Easy)
+        createLinks(1, 10, 'easy-grid', 'card-easy');
+        
+        // Generate 11-20 (Medium)
+        createLinks(11, 20, 'medium-grid', 'card-medium');
+        
+        // Generate 21-30 (Hard)
+        createLinks(21, 30, 'hard-grid', 'card-hard');
+    </script>
+</body>
+</html>
